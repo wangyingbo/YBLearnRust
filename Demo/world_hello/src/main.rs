@@ -31,7 +31,10 @@ fn handle_records(){
        .split(',')
        .map(|field| field.trim())
        .collect();
-
+       if cfg!(debug_assertions) {//说明紧跟其后的输出打印只在debug模式下生效
+           // 输出到标准错误输出
+           eprintln!("debug: {:?} -> {:?}",record, fields);
+        }
        let name = fields[0];
        if let Ok(length) = fields[1].parse::<f32>() {
            println!("{},{}cm",name,length)
