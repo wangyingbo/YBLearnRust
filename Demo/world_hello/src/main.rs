@@ -1,4 +1,7 @@
 
+// 常量的声明
+const MAX_OPTIONS: u32 = 1000_000;
+
 fn green_world() {
     let southern_germany = "Grüß Gott!";
     let chinese = "世界，你好！";
@@ -43,7 +46,38 @@ fn handle_records(){
    println!("\n");
 }
 
+fn basic_grammer_method() {
+    let a = 0;
+    let b: i32 = 10;
+    let c = 30_i32;
+    let mut d = 30_i32;
+    println!("可变变量：{}",d);
+    d = 40_i32;
+    println!("a={},b={},c={},d={}",a,b,c,d);
+    println!("a+b+c+d={}",add(add(a,b), add(c,d)));
+    
+    let (a, mut b):(bool,bool) = (true,false);
+    // a = true,不可变；b = false，可变
+    println!("a = {:?},b = {:?}",a,b);
+    b = true;
+    assert_eq!(a,b);
+
+    println!("常量的值：{}",MAX_OPTIONS);
+    
+    let guess = "42".parse::<i32>().expect("not a number");
+    // let guess: i32 = "42".parse().expect("not a number"); //和上面同样效果
+    println!("类型推导与标注：{}",guess);
+    
+    println!("\n");
+}
+
+fn add(i:i32,j:i32)-> i32 {
+    i+j //可省略return
+}
+
 fn main() {
     green_world();
     handle_records();
+    basic_grammer_method();
 }
+
