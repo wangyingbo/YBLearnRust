@@ -75,9 +75,20 @@ fn add(i:i32,j:i32)-> i32 {
     i+j //可省略return
 }
 
+
+fn greet(name:String) {
+    println!("hello,{}",name);
+}
+
+fn test_string() {
+    
+}
+
+
 fn main() {
     green_world();
     handle_records();
     basic_grammer_method();
+    test_string();
 }
 
